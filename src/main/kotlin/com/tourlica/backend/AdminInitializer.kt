@@ -14,6 +14,6 @@ class AdminInitializer(
     private val encoder: PasswordEncoder
 ) : ApplicationRunner {
     override fun run(args: ApplicationArguments?) {
-        userRepository.save(User("admin", encoder.encode("admin"), "관리자", type = UserType.ADMIN))
+        userRepository.save(User("admin", encoder.encode("admin"), "admin", type = UserType.ADMIN))
     }
 }
