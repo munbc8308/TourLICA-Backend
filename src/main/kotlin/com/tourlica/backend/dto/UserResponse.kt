@@ -1,5 +1,6 @@
 package com.tourlica.backend.dto
 
+import com.tourlica.backend.common.GenderType
 import com.tourlica.backend.common.UserType
 import com.tourlica.backend.entities.User
 import java.util.*
@@ -45,13 +46,17 @@ data class UserInfoResponse(
     val email: String?,
     val name: String?,
     val type: UserType,
+    val birthday: Date,
+    var gender: GenderType
     ) {
     companion object {
         fun from(user: User) = UserInfoResponse(
             id = user.id!!,
             email = user.email,
             name = user.name,
-            type = user.type
+            type = user.type,
+            birthday = user.birthday,
+            gender = user.gender
         )
     }
 }

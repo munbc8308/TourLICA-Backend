@@ -1,5 +1,6 @@
 package com.tourlica.backend.entities
 
+import com.tourlica.backend.common.GenderType
 import com.tourlica.backend.common.UserType
 import com.tourlica.backend.dto.SignUpRequest
 import com.tourlica.backend.dto.UserUpdateRequest
@@ -9,16 +10,22 @@ import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.crypto.password.PasswordEncoder
 import java.time.LocalDateTime
-import java.util.UUID
+import java.util.*
 
 @Entity
-class User(@Column(nullable = false, scale = 20, unique = true)
-           var email: String?,
-           @Column(nullable = false)
-           var password: String,
-           var name: String? = null,
-           @Enumerated(EnumType.STRING)
-           val type: UserType = UserType.USER): BaseTime() {
+class User(
+    @Column(nullable = false, scale = 20, unique = true)
+    var email: String?,
+    @Column(nullable = false)
+    var password: String,
+    var name: String? = null,
+    @Enumerated(EnumType.STRING)
+    val type: UserType = UserType.USER,
+    @Column(nullable = false)
+    var birthday: Date,
+    @Enumerated(EnumType.STRING)
+    var gender : GenderType = GenderType.MALE
+    ): BaseTime() {
 
         override val regist_date: LocalDateTime = LocalDateTime.now()
 
@@ -32,7 +39,9 @@ class User(@Column(nullable = false, scale = 20, unique = true)
             email = request.email,
             password = encoder.encode(request.password),
             name = request.name,
-            type = request.type
+            type = request.type,
+            birthday = request.birthday,
+            gender = request.gender
         )
     }
 
