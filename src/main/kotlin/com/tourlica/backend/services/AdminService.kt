@@ -15,5 +15,5 @@ class AdminService(private val userRepository: UserRepository) {
     fun getAdmins(): List<UserInfoResponse> = userRepository.findAllByType(UserType.ADMIN).map(UserInfoResponse::from)
 
     @Transactional(readOnly = true)
-    fun getGuidss(): List<UserInfoResponse> = userRepository.findAllByType(UserType.GUIDE).map(UserInfoResponse::from)
+    fun getGuides(): List<UserInfoResponse> = userRepository.findAllByType(UserType.GUIDE).map(UserInfoResponse::from)
 }

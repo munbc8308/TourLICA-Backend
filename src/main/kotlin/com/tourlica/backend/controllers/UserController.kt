@@ -21,7 +21,7 @@ class UserController(private val userService: UserService) {
 
     @GetMapping
     fun getUserInfo(@AuthenticationPrincipal user: User) =
-        ApiResponse.success(userService.getMemberInfo(UUID.fromString(user.name)))
+        ApiResponse.success(userService.getUserInfo(UUID.fromString(user.name)))
 
 
     @DeleteMapping
@@ -30,5 +30,5 @@ class UserController(private val userService: UserService) {
 
     @PutMapping
     fun updateUser(@AuthenticationPrincipal user: User, @RequestBody request: UserUpdateRequest) =
-        ApiResponse.success(userService.updateMember(UUID.fromString(user.name), request))
+        ApiResponse.success(userService.updateUser(UUID.fromString(user.name), request))
 }
