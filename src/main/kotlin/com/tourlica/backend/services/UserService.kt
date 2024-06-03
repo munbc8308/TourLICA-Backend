@@ -18,7 +18,7 @@ class UserService(
     private val encoder: PasswordEncoder
 ) {
     @Transactional(readOnly = true)
-    fun getMemberInfo(id: UUID) = UserInfoResponse.from(userRepository.findByIdOrThrow(id, "존재하지 않는 회원입니다."))
+    fun getUserInfo(id: UUID) = UserInfoResponse.from(userRepository.findByIdOrThrow(id, "존재하지 않는 회원입니다."))
 
     @Transactional
     fun deleteMember(id: UUID): UserDeleteResponse {
@@ -28,7 +28,7 @@ class UserService(
     }
 
     @Transactional
-    fun updateMember(id: UUID, request: UserUpdateRequest): UserUpdateResponse {
+    fun updateUser(id: UUID, request: UserUpdateRequest): UserUpdateResponse {
         val user = userRepository.findByIdOrNull(id)?.takeIf { encoder.matches(request.password, it.password) }
             ?: throw IllegalArgumentException("아이디 또는 비밀번호가 일치하지 않습니다.")
         user.update(request, encoder)
