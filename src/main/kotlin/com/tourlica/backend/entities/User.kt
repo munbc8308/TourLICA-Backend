@@ -1,13 +1,12 @@
 package com.tourlica.backend.entities
 
 import com.tourlica.backend.common.GenderType
+import com.tourlica.backend.common.LanguageType
 import com.tourlica.backend.common.UserType
 import com.tourlica.backend.dto.SignUpRequest
 import com.tourlica.backend.dto.UserUpdateRequest
 import jakarta.persistence.*
 
-import org.springframework.security.core.GrantedAuthority
-import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.crypto.password.PasswordEncoder
 import java.time.LocalDateTime
 import java.util.*
@@ -16,13 +15,24 @@ import java.util.*
 class User(
     @Column(nullable = false, scale = 20, unique = true)
     var email: String?,
+
     @Column(nullable = false)
     var password: String,
+
+    @Column(nullable = false)
+    var languages: List<LanguageType>,
+
+    @Column(nullable = false)
     var name: String? = null,
+
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     val type: UserType = UserType.USER,
+
     @Column(nullable = false)
     var birthday: Date,
+
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     var gender : GenderType = GenderType.MALE
     ): BaseTime() {
@@ -38,6 +48,7 @@ class User(
         fun from(request: SignUpRequest, encoder: PasswordEncoder) = User(
             email = request.email,
             password = encoder.encode(request.password),
+            languages = request.languages,
             name = request.name,
             type = request.type,
             birthday = request.birthday,
@@ -51,6 +62,8 @@ class User(
             ?.let { encoder.encode(it) }
             ?: this.password
         this.name = newUser.name
-        this.email = newUser.email
+        this.languages = newUser.languages
+        this.birthday = newUser.birthday
+        this.gender = newUser.gender
     }
 }
