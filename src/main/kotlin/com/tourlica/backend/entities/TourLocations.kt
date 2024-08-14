@@ -1,7 +1,6 @@
 package com.tourlica.backend.entities
 
 import com.tourlica.backend.dto.request.TourLocationAddRequest
-import com.tourlica.backend.dto.request.TourRegisterRequest
 import jakarta.persistence.*
 import java.util.*
 

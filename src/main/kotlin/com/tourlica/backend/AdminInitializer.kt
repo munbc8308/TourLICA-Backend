@@ -18,6 +18,6 @@ class AdminInitializer(
 ) : ApplicationRunner {
     override fun run(args: ApplicationArguments?) {
         userRepository.save(User("admin", encoder.encode("admin"), arrayListOf(LanguageType.KOREAN, LanguageType.ENGLISH) ,"admin", type = UserType.ADMIN,
-            Date(), gender = GenderType.MALE))
+            Date(), "010-1234-1234", gender = GenderType.MALE))
     }
 }
