@@ -12,7 +12,8 @@ data class SignUpRequest(
     val name: String? = null,
     val email: String? = null,
     var birthday: Date,
-    var gender: GenderType
+    var gender: GenderType,
+    var phone: String? = null,
 )
 
 data class SignInRequest(
@@ -26,5 +27,6 @@ data class UserUpdateRequest(
     var languages: List<LanguageType>,
     val name: String? = null,
     var birthday: Date,
+    var phone: String? = null,
     var gender: GenderType
 )

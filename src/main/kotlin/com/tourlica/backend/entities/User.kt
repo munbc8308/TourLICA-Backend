@@ -33,6 +33,9 @@ class User(
     var birthday: Date,
 
     @Column(nullable = false)
+    var phone: String? = null,
+
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     var gender : GenderType = GenderType.MALE
     ): BaseTime() {
@@ -52,7 +55,8 @@ class User(
             name = request.name,
             type = request.type,
             birthday = request.birthday,
-            gender = request.gender
+            gender = request.gender,
+            phone = request.phone
         )
     }
 
@@ -65,5 +69,6 @@ class User(
         this.languages = newUser.languages
         this.birthday = newUser.birthday
         this.gender = newUser.gender
+        this.phone = newUser.phone
     }
 }
