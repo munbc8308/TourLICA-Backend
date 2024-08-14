@@ -1,9 +1,9 @@
 package com.tourlica.backend.services
 
-import com.tourlica.backend.dto.SignInResponse
-import com.tourlica.backend.dto.SignInRequest
-import com.tourlica.backend.dto.SignUpRequest
-import com.tourlica.backend.dto.SignUpResponse
+import com.tourlica.backend.dto.response.SignInResponse
+import com.tourlica.backend.dto.request.SignInRequest
+import com.tourlica.backend.dto.request.SignUpRequest
+import com.tourlica.backend.dto.response.SignUpResponse
 import com.tourlica.backend.entities.UserRefreshToken
 import com.tourlica.backend.repository.UserRefreshTokenRepository
 import com.tourlica.backend.repository.UserRepository
@@ -23,7 +23,7 @@ class SignService(
     private val encoder: PasswordEncoder
 ) {
     @Transactional
-    fun registUser(request: SignUpRequest) = SignUpResponse.from(
+    fun registerUser(request: SignUpRequest) = SignUpResponse.from(
         userRepository.flushOrThrow(IllegalArgumentException("이미 사용중인 아이디입니다.")) { save(User.from(request, encoder)) }
     )
 

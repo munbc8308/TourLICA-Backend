@@ -1,4 +1,4 @@
-package com.tourlica.backend.dto
+package com.tourlica.backend.dto.response
 
 import com.tourlica.backend.common.GenderType
 import com.tourlica.backend.common.UserType

@@ -1,6 +1,7 @@
 package com.tourlica.backend
 
 import com.tourlica.backend.common.GenderType
+import com.tourlica.backend.common.LanguageType
 import com.tourlica.backend.common.UserType
 import com.tourlica.backend.entities.User
 import com.tourlica.backend.repository.UserRepository
@@ -16,7 +17,7 @@ class AdminInitializer(
     private val encoder: PasswordEncoder
 ) : ApplicationRunner {
     override fun run(args: ApplicationArguments?) {
-        userRepository.save(User("admin", encoder.encode("admin"), "admin", type = UserType.ADMIN,
+        userRepository.save(User("admin", encoder.encode("admin"), arrayListOf(LanguageType.KOREAN, LanguageType.ENGLISH) ,"admin", type = UserType.ADMIN,
             Date(), gender = GenderType.MALE))
     }
 }

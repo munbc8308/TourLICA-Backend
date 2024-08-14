@@ -1,6 +1,6 @@
 package com.tourlica.backend.controllers
 
-import com.tourlica.backend.dto.ApiResponse
+import com.tourlica.backend.dto.response.ApiResponse
 import com.tourlica.backend.security.AdminAuthorize
 import com.tourlica.backend.services.AdminService
 import org.springframework.web.bind.annotation.GetMapping

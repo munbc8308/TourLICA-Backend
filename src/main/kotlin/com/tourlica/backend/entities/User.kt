@@ -3,8 +3,8 @@ package com.tourlica.backend.entities
 import com.tourlica.backend.common.GenderType
 import com.tourlica.backend.common.LanguageType
 import com.tourlica.backend.common.UserType
-import com.tourlica.backend.dto.SignUpRequest
-import com.tourlica.backend.dto.UserUpdateRequest
+import com.tourlica.backend.dto.request.SignUpRequest
+import com.tourlica.backend.dto.request.UserUpdateRequest
 import jakarta.persistence.*
 
 import org.springframework.security.crypto.password.PasswordEncoder

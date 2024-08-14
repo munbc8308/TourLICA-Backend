@@ -1,7 +1,7 @@
 package com.tourlica.backend.services
 
 import com.tourlica.backend.common.UserType
-import com.tourlica.backend.dto.UserInfoResponse
+import com.tourlica.backend.dto.response.UserInfoResponse
 import com.tourlica.backend.repository.UserRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional

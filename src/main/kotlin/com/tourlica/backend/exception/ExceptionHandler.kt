@@ -1,6 +1,6 @@
 package com.tourlica.backend.exception
 
-import com.tourlica.backend.dto.ApiResponse
+import com.tourlica.backend.dto.response.ApiResponse
 import io.jsonwebtoken.ExpiredJwtException
 import io.jsonwebtoken.MalformedJwtException
 import io.jsonwebtoken.security.SignatureException

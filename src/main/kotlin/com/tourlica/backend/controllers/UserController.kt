@@ -1,7 +1,7 @@
 package com.tourlica.backend.controllers
 
-import com.tourlica.backend.dto.ApiResponse
-import com.tourlica.backend.dto.UserUpdateRequest
+import com.tourlica.backend.dto.response.ApiResponse
+import com.tourlica.backend.dto.request.UserUpdateRequest
 import com.tourlica.backend.entities.User
 import com.tourlica.backend.security.UserAuthorize
 import com.tourlica.backend.services.UserService

@@ -1,10 +1,10 @@
 package com.tourlica.backend.services
 
-import com.tourlica.backend.dto.UserInfoResponse
-import com.tourlica.backend.dto.UserUpdateResponse
-import com.tourlica.backend.dto.UserUpdateRequest
+import com.tourlica.backend.dto.response.UserInfoResponse
+import com.tourlica.backend.dto.response.UserUpdateResponse
+import com.tourlica.backend.dto.request.UserUpdateRequest
 import com.tourlica.backend.repository.UserRepository
-import com.tourlica.backend.dto.UserDeleteResponse
+import com.tourlica.backend.dto.response.UserDeleteResponse
 import com.tourlica.backend.utils.findByIdOrThrow
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.security.crypto.password.PasswordEncoder
